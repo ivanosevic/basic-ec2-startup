@@ -4,10 +4,11 @@
 
 # (1) Installing and updating basics programs
 yum -y update
-yum -y install htop git haproxy java-11-openjdk-devel
+yum -y install htop git haproxy
+amazon-linux-extras install -y java-openjdk11
 
 # (2) Configure haproxy
-myhaproxy.txt >> /etc/haproxy/haproxy.cfg
+bash -c "cat myhaproxy.txt >> /etc/haproxy/haproxy.cfg"
 systemctl restart haproxy
 
 # (3) Configure Swap Memory
