@@ -7,6 +7,10 @@ yum -y update
 yum -y install htop git haproxy
 amazon-linux-extras install -y java-openjdk11
 
+amazon-linux-extras install docker
+service start docker
+usermod -aG docker ec2-user
+
 # (2) Configure haproxy
 bash -c "cat myhaproxy.txt >> /etc/haproxy/haproxy.cfg"
 systemctl restart haproxy
